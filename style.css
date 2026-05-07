@@ -1,0 +1,69 @@
+@font-face {
+  font-family: Doto;
+  src: url("sources/Doto-Black.ttf") format("truetype");
+}
+
+* {
+  font-family: Doto;
+  cursor: pointer;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #afbbc9;
+  color: white;
+}
+
+#text {
+  margin: 0;
+  padding-block: 10vh;
+  font-size: 5vh;
+}
+#text::after {
+  content: "_";
+  animation: blink 0.7s step-end infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+#wrapper {
+  width: 50vh;
+  height: 50vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#image {
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+#image:hover {
+  transform: rotate(5deg);
+}
+
+#visualizer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (orientation: portrait) {
+  #text {
+    font-size: 5vw;
+  }
+  #wrapper {
+    width: 50vw;
+    height: 50vw;
+  }
+}
